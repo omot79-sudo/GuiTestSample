@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <TestRunParameters>
+    <!--
+      テスト対象の EXE。相対パスはテストの出力フォルダ
+      (tests\SampleApp.GuiTests\bin\Debug\net462\) からの相対。
+      絶対パスも可。例: C:\Program Files\製品名\Product.exe
+    -->
+    <Parameter name="TargetExeCS" value="..\..\..\..\..\src\SampleApp\bin\Debug\net462\SampleApp.exe" />
+    <Parameter name="TargetExeVB" value="..\..\..\..\..\src\SampleAppVB\bin\Debug\net462\SampleAppVB.exe" />
+
+    <!-- キャプチャ(エビデンス)の保存先。ソリューション直下の Evidence フォルダ -->
+    <Parameter name="EvidenceDir" value="..\..\..\..\..\Evidence" />
+  </TestRunParameters>
+</RunSettings>

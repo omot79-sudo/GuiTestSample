@@ -1,0 +1,66 @@
+## ================================================
+## GuiTestSample 用 .gitignore（Visual Studio / .NET）
+## ================================================
+
+# ---- Visual Studio のユーザー設定・キャッシュ ----
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+# ---- ビルド成果物 ----
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]64/
+[Ll]og/
+[Ll]ogs/
+
+# ---- NuGet ----
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+project.lock.json
+project.fragment.lock.json
+*.nuget.props
+*.nuget.targets
+
+# ---- テスト結果 ----
+TestResults/
+[Tt]est[Rr]esult*/
+*.trx
+*.coverage
+*.coveragexml
+
+# ---- GUIテストのキャプチャ（エビデンス） ----
+# 実行のたびに大量に増えるため管理対象外にする。
+# 残したい場合は、別の保管場所にコピーすること。
+Evidence/
+
+# ---- 各種ツールのキャッシュ ----
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+.idea/
+*.sln.iml
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# ---- Windows / その他 ----
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.log
+*.tmp
+*.bak
+~$*

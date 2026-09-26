@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- 既存の単体テストと同じ .NET Framework 4.6.2 で作る -->
+    <TargetFramework>net462</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <!-- Visual Studio のテストエクスプローラーでも自動でこの設定ファイルを使う -->
+    <RunSettingsFilePath>$(MSBuildProjectDirectory)\gui.runsettings</RunSettingsFilePath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.6.4" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.6.4" />
+    <PackageReference Include="FlaUI.UIA3" Version="4.0.0" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!--
+    ポイント: SampleApp / SampleAppVB へのプロジェクト参照は「しない」。
+    ビルド済みの EXE を別プロセスとして起動し、外から操作する。
+    テスト対象の EXE パスは gui.runsettings で指定する。
+  -->
+
+</Project>
