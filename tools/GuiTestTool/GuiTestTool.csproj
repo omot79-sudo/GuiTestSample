@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    GUIテスト用のコマンドラインツール。
+      compare : VB断面とC#断面のエビデンスを比較して compare.html を出す
+      report  : エビデンスから report.html を作り直す
+      dump    : 起動中の画面から項目を吸い出し、Page クラスのひな形（基本値つき）を作る
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net462</TargetFramework>
+    <RootNamespace>GuiTestTool</RootNamespace>
+    <AssemblyName>GuiTestTool</AssemblyName>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\tests\GuiTestKit\GuiTestKit.csproj" />
+  </ItemGroup>
+
+</Project>

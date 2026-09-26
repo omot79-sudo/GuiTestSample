@@ -14,11 +14,12 @@ Public Class MainForm
     Private ReadOnly btnCalc As New Button With {.Name = "btnCalc", .Text = "計算", .Location = New Point(90, 95), .Width = 80}
     Private ReadOnly btnClear As New Button With {.Name = "btnClear", .Text = "クリア", .Location = New Point(180, 95), .Width = 80}
     Private ReadOnly lblResult As New Label With {.Name = "lblResult", .Text = "結果: -", .Location = New Point(20, 140), .AutoSize = True}
+    Private ReadOnly btnCustomer As New Button With {.Name = "btnCustomer", .Text = "顧客登録...", .Location = New Point(90, 175), .Width = 170}
 
     Public Sub New()
         Me.Name = "MainForm"
         Me.Text = "計算サンプル（VB）"
-        Me.ClientSize = New Size(290, 180)
+        Me.ClientSize = New Size(290, 215)
         Me.FormBorderStyle = FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.StartPosition = FormStartPosition.CenterScreen
@@ -28,8 +29,9 @@ Public Class MainForm
 
         AddHandler btnCalc.Click, AddressOf BtnCalc_Click
         AddHandler btnClear.Click, AddressOf BtnClear_Click
+        AddHandler btnCustomer.Click, AddressOf BtnCustomer_Click
 
-        Me.Controls.AddRange(New Control() {lblA, txtA, lblB, txtB, btnCalc, btnClear, lblResult})
+        Me.Controls.AddRange(New Control() {lblA, txtA, lblB, txtB, btnCalc, btnClear, lblResult, btnCustomer})
         Me.AcceptButton = btnCalc
     End Sub
 
@@ -50,6 +52,13 @@ Public Class MainForm
         txtB.Clear()
         lblResult.Text = "結果: -"
         txtA.Focus()
+    End Sub
+
+    Private Sub BtnCustomer_Click(sender As Object, e As EventArgs)
+        ' 別画面をモーダルで開く（業務アプリで多い画面遷移の例）
+        Using form As New CustomerForm()
+            form.ShowDialog(Me)
+        End Using
     End Sub
 
 End Class

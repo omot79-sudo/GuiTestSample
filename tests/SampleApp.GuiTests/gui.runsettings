@@ -2,14 +2,28 @@
 <RunSettings>
   <TestRunParameters>
     <!--
-      テスト対象の EXE。相対パスはテストの出力フォルダ
-      (tests\SampleApp.GuiTests\bin\Debug\net462\) からの相対。
+      テスト対象: VB（移行前）/ CS（移行後）。
+      run-gui-tests.ps1 -Target VB|CS で実行するとここを上書きする。
+      Visual Studio のテストエクスプローラーで実行するときは、この値を書き換える。
+    -->
+    <Parameter name="Target" value="VB" />
+
+    <!--
+      Target ごとの EXE。名前は "TargetExe" + Target。
+      相対パスはテストの出力フォルダ (tests\SampleApp.GuiTests\bin\Debug\net462\) からの相対。
       絶対パスも可。例: C:\Program Files\製品名\Product.exe
     -->
-    <Parameter name="TargetExeCS" value="..\..\..\..\..\src\SampleApp\bin\Debug\net462\SampleApp.exe" />
     <Parameter name="TargetExeVB" value="..\..\..\..\..\src\SampleAppVB\bin\Debug\net462\SampleAppVB.exe" />
+    <Parameter name="TargetExeCS" value="..\..\..\..\..\src\SampleApp\bin\Debug\net462\SampleApp.exe" />
 
     <!-- キャプチャ(エビデンス)の保存先。ソリューション直下の Evidence フォルダ -->
     <Parameter name="EvidenceDir" value="..\..\..\..\..\Evidence" />
+
+    <!--
+      テストデータ初期化コマンド（任意）。テスト1件ごと、アプリ起動前に cmd.exe /c で実行する。
+      終了コードが 0 以外ならテストは失敗になる。作業フォルダはテストの出力フォルダ。
+      例: sqlcmd -S .\SQLEXPRESS -d CodeFinder -i ..\..\..\..\..\TestData\reset.sql -b
+    -->
+    <Parameter name="ResetCommand" value="" />
   </TestRunParameters>
 </RunSettings>

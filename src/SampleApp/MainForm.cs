@@ -16,12 +16,13 @@ namespace SampleApp
         private readonly Button btnCalc = new Button { Name = "btnCalc", Text = "計算", Location = new Point(90, 95), Width = 80 };
         private readonly Button btnClear = new Button { Name = "btnClear", Text = "クリア", Location = new Point(180, 95), Width = 80 };
         private readonly Label lblResult = new Label { Name = "lblResult", Text = "結果: -", Location = new Point(20, 140), AutoSize = true };
+        private readonly Button btnCustomer = new Button { Name = "btnCustomer", Text = "顧客登録...", Location = new Point(90, 175), Width = 170 };
 
         public MainForm()
         {
             Name = "MainForm";
             Text = "計算サンプル（C#）";
-            ClientSize = new Size(290, 180);
+            ClientSize = new Size(290, 215);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             StartPosition = FormStartPosition.CenterScreen;
@@ -31,8 +32,9 @@ namespace SampleApp
 
             btnCalc.Click += BtnCalc_Click;
             btnClear.Click += BtnClear_Click;
+            btnCustomer.Click += BtnCustomer_Click;
 
-            Controls.AddRange(new Control[] { lblA, txtA, lblB, txtB, btnCalc, btnClear, lblResult });
+            Controls.AddRange(new Control[] { lblA, txtA, lblB, txtB, btnCalc, btnClear, lblResult, btnCustomer });
             AcceptButton = btnCalc;
         }
 
@@ -55,6 +57,15 @@ namespace SampleApp
             txtB.Clear();
             lblResult.Text = "結果: -";
             txtA.Focus();
+        }
+
+        private void BtnCustomer_Click(object sender, EventArgs e)
+        {
+            // 別画面をモーダルで開く（業務アプリで多い画面遷移の例）
+            using (var form = new CustomerForm())
+            {
+                form.ShowDialog(this);
+            }
         }
     }
 }
